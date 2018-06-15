@@ -8,3 +8,15 @@
 /build
 /captures
 .externalNativeBuild
+
+*.iml
+*.iws
+*.ipr
+.idea/
+
+# Gradle files
+.gradle
+/build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
