@@ -17,9 +17,9 @@ import android.widget.TextView;
 
 public class LaderboardActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    int[] POINTS_YEARLY = {1260, 540, 2};
-    int[] POINTS_MONTHLY = {520, 234, 34};
-    int[] POINTS_WEEKLY = {234, 123, 42};
+    int[] POINTS_YEARLY = {1240, 650, 200};
+    int[] POINTS_MONTHLY = {520, 375, 160};
+    int[] POINTS_WEEKLY = {260, 150, 40};
 
 
     private Spinner periodChooser;
@@ -57,9 +57,9 @@ public class LaderboardActivity extends AppCompatActivity implements AdapterView
         TextView text = (TextView) view;
         String choice = text.getText().toString();
 
-        if (choice.equals("tydzień")) {
+        if (choice.equals("Tydzień")) {
             displayWeekly();
-        } else if (choice.equals("miesiąc")) {
+        } else if (choice.equals("Miesiąc")) {
             displayMonthly();
         } else {
             displayYearly();
