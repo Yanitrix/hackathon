@@ -21,11 +21,9 @@ public class LaderboardActivity extends AppCompatActivity implements AdapterView
     int[] POINTS_MONTHLY = {520, 234, 34};
     int[] POINTS_WEEKLY = {234, 123, 42};
 
-    int[] IMGS = {R.drawable.logo_icon, R.drawable.logo_icon, R.drawable.logo_icon};
 
     private Spinner periodChooser;
     private TextView score1, score2, score3;
-    private ImageView logo1, logo2, logo3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +37,6 @@ public class LaderboardActivity extends AppCompatActivity implements AdapterView
         periodChooser.setAdapter(ar);
         periodChooser.setOnItemSelectedListener(this);
 
-        logo1.setImageResource(R.drawable.logo_icon);
-        logo2.setImageResource(R.drawable.logo_icon);
-        logo3.setImageResource(R.drawable.logo_icon);
 
 
         displayWeekly();
@@ -53,9 +48,6 @@ public class LaderboardActivity extends AppCompatActivity implements AdapterView
         score1 = (TextView) findViewById(R.id.score1);
         score2 = (TextView) findViewById(R.id.score2);
         score3 = (TextView) findViewById(R.id.score3);
-        logo1 = (ImageView) findViewById(R.id.logo1);
-        logo2 = (ImageView) findViewById(R.id.logo2);
-        logo3 =  (ImageView) findViewById(R.id.logo3);
     }
 
 
