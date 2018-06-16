@@ -7,9 +7,9 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string-array name="period">
-        <item>week</item>
-        <item>month</item>
-        <item>year</item>
+        <item>tydzień</item>
+        <item>miesiąc</item>
+        <item>rok</item>
     </string-array>
 
 </resources>
