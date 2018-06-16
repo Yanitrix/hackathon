@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_esport) {
 
+            startActivity(new Intent(MainActivity.this,Sport.class));
+
         } else if (id == R.id.nav_sport) {
 
         }
