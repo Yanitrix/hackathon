@@ -57,9 +57,9 @@ public class LaderboardActivity extends AppCompatActivity implements AdapterView
         TextView text = (TextView) view;
         String choice = text.getText().toString();
 
-        if (choice.equals("week")) {
+        if (choice.equals("tydzień")) {
             displayWeekly();
-        } else if (choice.equals("month")) {
+        } else if (choice.equals("miesiąc")) {
             displayMonthly();
         } else {
             displayYearly();

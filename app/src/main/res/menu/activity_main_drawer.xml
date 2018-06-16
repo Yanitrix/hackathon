@@ -12,13 +12,14 @@
             android:title="Ranking"
             />
         <item
-            android:id="@+id/nav_esport"
-            android:icon="@drawable/ic_videogame_asset_black_24dp"
-            android:title="E-Sport" />
-        <item
             android:id="@+id/nav_sport"
             android:icon="@drawable/ic_casino_black_24dp"
             android:title="Sport" />
+        <item
+            android:id="@+id/nav_esport"
+            android:icon="@drawable/ic_videogame_asset_black_24dp"
+            android:title="E-Sport" />
+
     </group>
 
     <item android:title="">
