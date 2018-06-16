@@ -17,18 +17,15 @@ import android.widget.TextView;
 
 public class LaderboardActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    CustomAdapter weeklyAdapter;
-    CustomAdapter monthlyAdapter;
-    CustomAdapter yearlyAdapter;
-    String[] CLANS_WEEKLY = {"Slowack", "Sniadek", "Sawcia"};
-    String[] CLANS_MONTHLY = {"Slowack", "Sniadek", "Sawcia"};
-    String[] CLANS_YEARLY = {"Slowack", "Sniadek", "Sawcia"};
     int[] POINTS_YEARLY = {1260, 540, 2};
     int[] POINTS_MONTHLY = {520, 234, 34};
     int[] POINTS_WEEKLY = {234, 123, 42};
+
     int[] IMGS = {R.drawable.logo_icon, R.drawable.logo_icon, R.drawable.logo_icon};
-    private ListView leaderboard;
+
     private Spinner periodChooser;
+    private TextView score1, score2, score3;
+    private ImageView logo1, logo2, logo3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,31 +39,25 @@ public class LaderboardActivity extends AppCompatActivity implements AdapterView
         periodChooser.setAdapter(ar);
         periodChooser.setOnItemSelectedListener(this);
 
-//         weeklyAdapter = new CustomAdapter(this, CLANS_WEEKLY, POINTS_WEEKLY, IMGS);
-        monthlyAdapter = new CustomAdapter(this, CLANS_MONTHLY, POINTS_MONTHLY, IMGS);
-        yearlyAdapter = new CustomAdapter(this, CLANS_YEARLY, POINTS_YEARLY, IMGS);
+        logo1.setImageResource(R.drawable.logo_icon);
+        logo2.setImageResource(R.drawable.logo_icon);
+        logo3.setImageResource(R.drawable.logo_icon);
 
-        leaderboard.setAdapter(weeklyAdapter);
 
+        displayWeekly();
     }
 
     private void initializeReferences() {
-        leaderboard = (ListView) findViewById(R.id.leaderboard);
         periodChooser = (Spinner) findViewById(R.id.periodChooser);
 
+        score1 = (TextView) findViewById(R.id.score1);
+        score2 = (TextView) findViewById(R.id.score2);
+        score3 = (TextView) findViewById(R.id.score3);
+        logo1 = (ImageView) findViewById(R.id.logo1);
+        logo2 = (ImageView) findViewById(R.id.logo2);
+        logo3 =  (ImageView) findViewById(R.id.logo3);
     }
 
-    private void displayWeekly() {
-        leaderboard.setAdapter(weeklyAdapter);
-    }
-
-    private void displayMonthly() {
-        leaderboard.setAdapter(monthlyAdapter);
-    }
-
-    private void displayYearly() {
-        leaderboard.setAdapter(yearlyAdapter);
-    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -84,46 +75,29 @@ public class LaderboardActivity extends AppCompatActivity implements AdapterView
 
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+    private void displayWeekly() {
+        score1.setText(Integer.toString(POINTS_WEEKLY[0]));
+        score2.setText(Integer.toString(POINTS_WEEKLY[1]));
+        score3.setText(Integer.toString(POINTS_WEEKLY[2]));
+    }
 
+    private void displayMonthly(){
+        score1.setText(Integer.toString(POINTS_MONTHLY[0]));
+        score2.setText(Integer.toString(POINTS_MONTHLY[1]));
+        score3.setText(Integer.toString(POINTS_MONTHLY[2]));
+    }
+
+    private void displayYearly(){
+        score1.setText(Integer.toString(POINTS_YEARLY[0]));
+        score2.setText(Integer.toString(POINTS_YEARLY[1]));
+        score3.setText(Integer.toString(POINTS_YEARLY[2]));
     }
 
     @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
+    public void onNothingSelected(AdapterView<?> parent) {}
 
-    }
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {}
 
 
-    class CustomAdapter extends ArrayAdapter<String> {
-        Context context;
-        String clanNames[];
-        int scores[];
-        int[] imgs;
-
-        CustomAdapter(Context c, String[] names, int[] scores, int[] imgs) {
-            super(c, R.layout.listview_layout, R.id.textView_clanname, names);
-            this.context = c;
-            this.imgs = imgs;
-            this.clanNames = names;
-            this.scores = scores;
-
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            LayoutInflater lfi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = lfi.inflate(R.layout.listview_layout, parent, false);
-            ImageView imgs = view.findViewById(R.id.clanLogo);
-            TextView clanName = view.findViewById(R.id.textView_clanname);
-            TextView score = view.findViewById(R.id.textView_score);
-            imgs.setImageResource(position);
-            clanName.setText(clanNames[position]);
-            score.setText(scores[position]);
-
-            return view;
-
-        }
-    }
 }
