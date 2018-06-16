@@ -34,7 +34,7 @@ public class LaderboardActivity extends AppCompatActivity implements AdapterView
 
         initializeReferences();
 
-        ArrayAdapter ar = ArrayAdapter.createFromResource(this, R.array.period, android.R.layout.simple_spinner_item);
+        ArrayAdapter ar = ArrayAdapter.createFromResource(this, R.array.period, R.layout.spinner_item);
 
         periodChooser.setAdapter(ar);
         periodChooser.setOnItemSelectedListener(this);
